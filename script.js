@@ -1,21 +1,25 @@
 const menuToggle = document.getElementById("menuToggle");
-    const menu = document.getElementById("menu");
-    const darkModeToggle = document.getElementById("darkModeToggle");
-    let zoomLevel = 1; // Define zoomLevel here
-    let isDarkMode = false; // Track dark mode state
+const menu = document.getElementById("menu");
+const darkModeToggle = document.getElementById("darkModeToggle");
+let zoomLevel = 1; // Define zoomLevel here
+let isDarkMode = false; // Track dark mode state
+let isMenuOpen = false; // Track whether the menu is open or closed
 
-    menuToggle.addEventListener("click", () => {
-        // Toggle menu visibility
-        if (menu.classList.contains("hidden")) {
-            menu.classList.remove("hidden");
-            menu.style.left = "0";
-            document.body.style.marginLeft = "250px";
-        } else {
-            menu.classList.add("hidden");
-            menu.style.left = "-250px";
-            document.body.style.marginLeft = "0";
-        }
-    });
+menuToggle.addEventListener("click", () => {
+  // Toggle menu visibility
+  if (menu.classList.contains("hidden")) {
+      menu.classList.remove("hidden");
+      menu.style.left = "0";
+      document.body.style.marginLeft = "150px";
+      
+  } else {
+      menu.classList.add("hidden");
+      menu.style.left = "-150px";
+      menu.classList.add("visible");
+        document.body.style.marginLeft = "150px"; // Change to 150px
+      document.body.style.marginLeft = "0";
+  }
+});
 
     darkModeToggle.addEventListener("change", () => {
         // Toggle dark mode

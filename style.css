@@ -7,7 +7,6 @@ body {
 }
 
 body.dark-mode {
-  /* Add dark mode styles here */
   background-color: #333;
   color: white;
 }
@@ -19,6 +18,19 @@ body.dark-mode {
   justify-content: space-between;
   align-items: center;
   padding: 5px;
+}
+
+#cata {
+  display: block;
+  border: 1px solid wheat;
+  width: 100%;
+  padding: 10px;
+  border-radius: 2px;
+  color: burlywood;
+  margin: 0 auto;
+  text-align: center;
+  text-decoration: none;
+  margin-bottom: 20px;
 }
 
 .dark-mode-toggle {
@@ -69,12 +81,18 @@ body.dark-mode {
 nav {
   background-color: #333;
   color: white;
-  width: 250px;
+  width: 150px;
   height: 100%;
   position: fixed;
-  left: -250px;
+  left: -150px;
   top: 0;
   transition: left 0.3s ease-in;
+  overflow: hidden;
+}
+
+/* Adjust the transition for smoother animation */
+nav.transitioning {
+  transition: left 0.3s ease-in-out;
 }
 
 nav ul {
@@ -98,32 +116,30 @@ nav a {
   display: none;
 }
 
-
 .container {
-  margin-left: 0;
   display: flex;
   flex-wrap: wrap;
-  justify-content: space-between;
-  max-width: 1000px;
+  justify-content: flex-start; /* Start from the left */
   margin: 0 auto;
-  transition: margin-left 0.3s;
-  margin-top: auto;
   padding: 20px;
 }
 
-.catLog{
-  display: block;
-  background-color: #4CAF50;
+.image-row {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: flex-start; /* Start from the left */
+  margin-bottom: 20px;
+  width: 100%; /* Ensure each row takes the full width */
 }
 
-
 .img {
-  position: relative;
-  width: calc(20% - 20px);
+  position:relative;
+  width: calc(10%); /* Adjust the width for 10 images per row */
+  margin-right: auto; /* Add a small gap between images */
   margin-bottom: 20px;
-  border: 2px solid #e0e0e0;
+  border: 1px solid #9f9f9f;
   display: flex;
-  align-items: center;
+  align-content: flex-start;
 }
 
 .thumbnail {
@@ -152,7 +168,7 @@ nav a {
   color: #dfdede;
   font-size: 30px;
   cursor: pointer;
-  z-index: 1;
+  z-index: 2;
 }
 
 .full-image {
@@ -173,6 +189,7 @@ nav a {
   }
 }
 
+/* Add a media query for screens with a maximum width of 768px */
 @media screen and (max-width: 768px) {
   .menu-toggle {
     margin-left: 10px;
@@ -183,14 +200,19 @@ nav a {
   }
 
   .container {
-    margin-left: 0;
-  }
-
-  body {
-    margin-left: 0;
+    padding: 10px; /* Adjust padding for smaller screens */
   }
 
   nav {
-    left: -250px;
+    left: -150px;
+  }
+
+  /* Set a minimum width of 150px for each image on smaller screens */
+  .img {
+    width: calc(20%); /* Adjust for three images per row on smaller screens */
+    margin-right: auto;
+    margin-bottom: 20px;
+    display: flex;
+    justify-content: center;
   }
 }
